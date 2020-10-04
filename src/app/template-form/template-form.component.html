@@ -1,0 +1,39 @@
+<form #template="ngForm" (ngSubmit)="onSubmit(template.value)"> 
+  <label>Name:
+    <input type="text" name="Name" [(ngModel)]="check.Name" #Name="ngModel" ngModel>
+    </label>
+    <br><br>
+
+
+    <label>Last Name:
+      <input type="text" name="lname" [(ngModel)]="check.lname" #lname="ngModel">
+      </label>
+      <br><br>
+      <label>Gender:
+    <select name="gender" [(ngModel)]="check.gender" #gender="ngModel" ngModel >
+      <option>M</option>
+      <option>F</option>
+      <option>O</option>
+    </select>
+    </label>
+    <br><br>
+    <label>Email id:
+      <input type="email" name="emailid"  [(ngModel)]="check.emailid" #emailid="ngModel" ngModel>
+    </label>
+    
+    <div *ngIf="emailid.invalid &&(emailid.dirty || emailid.touched)" class="alert forminput">
+    
+    <div  *ngIf="emailid.errors.required">
+      Email is required
+    </div>
+  </div>
+
+    <br><br>
+    <label>Contact No:
+      <input type="number" name="contactno" ngModel>
+    </label>
+    <button [disabled]="template.invalid">
+      Submit
+    </button>
+
+</form>
